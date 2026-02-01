@@ -1,22 +1,46 @@
 {
-  "name": "rootenator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "tsup src/index.ts --format cjs,esm --watch --dts",
-    "build": "tsup src/index.ts --format cjs,esm --minify --clean --dts",
-    "start": "tsx src/index.ts",
-    "lint": "tsc"
-  },
+  "name": "@wacky/rootenator",
+  "version": "0.0.1",
+  "description": "A lightweight library for generating CSS roots",
   "keywords": [],
-  "author": "",
+  "homepage": "https://github.com/wackinator/rootenator#readme",
+  "bugs": {
+    "url": "https://github.com/wackinator/rootenator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wackinator/rootenator.git"
+  },
   "license": "ISC",
-  "type": "commonjs",
+  "author": "Wacky",
+  "type": "module",
+  "bin": {
+    "rootenator": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx watch src/cli.ts",
+    "build": "tsup",
+    "lint": "tsc --noEmit"
+  },
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
+    "@types/node": "^25.1.0",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "jiti": "^2.6.1"
   }
 }
